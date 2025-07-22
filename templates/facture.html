@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    body { font-family: Arial, sans-serif; }
+    table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+    th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+    th { background-color: #f2f2f2; }
+    .total { text-align: right; font-weight: bold; margin-top: 10px; }
+  </style>
+</head>
+<body>
+  <h1>Facture n° {{ numero_facture }}</h1>
+  <p><strong>Client :</strong> {{ client }}<br>
+     <strong>Adresse :</strong> {{ adresse }}<br>
+     <strong>Date :</strong> {{ date }}</p>
+
+  <table>
+    <tr>
+      <th>Article</th>
+      <th>Quantité</th>
+      <th>Prix unitaire</th>
+      <th>Total</th>
+    </tr>
+    {% for ligne in lignes %}
+    <tr>
+      <td>{{ ligne.article }}</td>
+      <td>{{ ligne.qte }}</td>
+      <td>{{ ligne.pu }}</td>
+      <td>{{ ligne.total }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+
+  <p class="total">Montant total : {{ total }} €</p>
+</body>
+</html>
